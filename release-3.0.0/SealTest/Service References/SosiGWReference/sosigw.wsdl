@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:medcom="http://www.medcom.dk/dgws/2006/04/dgws-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdlXXXX" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:sosigw="http://sosi.dk/gw/2007.09.01" targetNamespace="http://sosi.dk/gw/2007.09.01" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <xsd:include schemaLocation="../schema/wsse.xsd" />
+    </xsd:schema>
+    <xsd:schema targetNamespace="urn:oasis:names:tc:SAML:2.0:assertion">
+      <xsd:include schemaLocation="../schema/saml.xsd" />
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.medcom.dk/dgws/2006/04/dgws-1.0.xsd">
+      <xsd:include schemaLocation="../schema/medcom.xsd" />
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://sosi.dk/gw/2007.09.01">
+      <xsd:include schemaLocation="../schema/sosigw_logoutRequest.xsd" />
+      <xsd:include schemaLocation="../schema/sosigw_requestIdCardDigestForSigningRequest.xsd" />
+      <xsd:include schemaLocation="../schema/sosigw_requestIdCardDigestForSigningResponse.xsd" />
+      <xsd:include schemaLocation="../schema/sosigw_getValidIdCardRequest.xsd" />
+      <xsd:include schemaLocation="../schema/sosigw_getValidIdCardResponse.xsd" />
+      <xsd:include schemaLocation="../schema/sosigw_signIdCardRequest.xsd" />
+      <xsd:include schemaLocation="../schema/sosigw_signIdCardResponse.xsd" />
+      <xsd:include schemaLocation="../schema/sosigw_implicitLoginHeader.xsd" />
+    </xsd:schema>
+  </types>
+  <message name="requestIdCardDigestForSigningRequest">
+    <part name="wsseHeader" element="wsse:Security" />
+    <part name="requestIdCardDigestForSigningRequestBody" element="sosigw:requestIdCardDigestForSigningRequestBody" />
+  </message>
+  <message name="requestIdCardDigestForSigningResponse">
+    <part name="requestIdCardDigestForSigningResponse" element="sosigw:requestIdCardDigestForSigningResponse" />
+  </message>
+  <message name="logoutRequest">
+    <part name="wsseHeader" element="wsse:Security" />
+    <part name="logoutRequestBody" element="sosigw:logoutRequestBody" />
+  </message>
+  <message name="getValidIdCardRequest">
+    <part name="wsseHeader" element="wsse:Security" />
+    <part name="getValidIdCardRequestBody" element="sosigw:getValidIdCardRequestBody" />
+  </message>
+  <message name="getValidIdCardResponse">
+    <part name="getValidIdCardResponse" element="sosigw:getValidIdCardResponse" />
+  </message>
+  <message name="signIdCardRequest">
+    <part name="wsseHeader" element="wsse:Security" />
+    <part name="signIdCardRequestBody" element="sosigw:signIdCardRequestBody" />
+  </message>
+  <message name="signIdCardResponse">
+    <part name="signIdCardResponse" element="sosigw:signIdCardResponse" />
+  </message>
+  <message name="DGWSFault">
+    <part name="fault" element="medcom:FaultCode" />
+  </message>
+  <portType name="SosiGWFacade">
+    <operation name="requestIdCardDigestForSigning">
+      <input name="requestIdCardDigestForSigningRequest" message="sosigw:requestIdCardDigestForSigningRequest" />
+      <output name="requestIdCardDigestForSigningResponse" message="sosigw:requestIdCardDigestForSigningResponse" />
+      <fault name="DGWSFault" message="sosigw:DGWSFault" />
+    </operation>
+    <operation name="logout">
+      <input name="logoutRequest" message="sosigw:logoutRequest" />
+    </operation>
+    <operation name="getValidIdCard">
+      <input name="getValidIdCardRequest" message="sosigw:getValidIdCardRequest" />
+      <output name="getValidIdCardResponse" message="sosigw:getValidIdCardResponse" />
+      <fault name="DGWSFault" message="sosigw:DGWSFault" />
+    </operation>
+    <operation name="signIdCard">
+      <input name="signIdCardRequest" message="sosigw:signIdCardRequest" />
+      <output name="signIdCardResponse" message="sosigw:signIdCardResponse" />
+      <fault name="DGWSFault" message="sosigw:DGWSFault" />
+    </operation>
+  </portType>
+  <binding name="SosiGWSoapBinding" type="sosigw:SosiGWFacade">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="requestIdCardDigestForSigning">
+      <soap:operation soapAction="http://sosi.dk/gw/2007.09.01#requestIdCardDigestForSigning" />
+      <input name="requestIdCardDigestForSigningRequest">
+        <soap:header message="sosigw:requestIdCardDigestForSigningRequest" part="wsseHeader" use="literal" />
+        <soap:body use="literal" parts="requestIdCardDigestForSigningRequestBody" />
+      </input>
+      <output name="requestIdCardDigestForSigningResponse">
+        <soap:body use="literal" />
+      </output>
+      <fault name="DGWSFault">
+        <soap:fault use="literal" name="DGWSFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="logout">
+      <soap:operation soapAction="http://sosi.dk/gw/2007.09.01#logout" />
+      <input name="logoutRequest">
+        <soap:header message="sosigw:logoutRequest" part="wsseHeader" use="literal" />
+        <soap:body use="literal" parts="logoutRequestBody" />
+      </input>
+    </operation>
+    <operation name="getValidIdCard">
+      <soap:operation soapAction="http://sosi.dk/gw/2007.09.01#getValidIdCard" />
+      <input name="getValidIdCardRequest">
+        <soap:header message="sosigw:getValidIdCardRequest" part="wsseHeader" use="literal" />
+        <soap:body use="literal" parts="getValidIdCardRequestBody" />
+      </input>
+      <output name="getValidIdCardResponse">
+        <soap:body use="literal" />
+      </output>
+      <fault name="DGWSFault">
+        <soap:fault use="literal" name="DGWSFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="signIdCard">
+      <soap:operation soapAction="http://sosi.dk/gw/2007.09.01#signIdCard" />
+      <input name="signIdCardRequest">
+        <soap:header message="sosigw:signIdCardRequest" part="wsseHeader" use="literal" />
+        <soap:body use="literal" parts="signIdCardRequestBody" />
+      </input>
+      <output name="signIdCardResponse">
+        <soap:body use="literal" />
+      </output>
+      <fault name="DGWSFault">
+        <soap:fault use="literal" name="DGWSFault" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="SosiGWFacadeService">
+    <port name="SosiGWSoapBinding" binding="sosigw:SosiGWSoapBinding">
+      <soap:address location="http://localhost:8080/sosigw/service/sosigw" />
+    </port>
+  </service>
+</definitions>

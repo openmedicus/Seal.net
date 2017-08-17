@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{896C32BB-27E9-440C-AEA4-3F38CD54DA8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dk.nsi.seal</RootNamespace>
+    <AssemblyName>Seal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'depoy|AnyCPU'">
+    <OutputPath>bin\depoy\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clients\ResponseSerializer.cs" />
+    <Compile Include="Clients\Saml2ResponseSerializer.cs" />
+    <Compile Include="Clients\Saml2SosiStsClient.cs" />
+    <Compile Include="Clients\Seal2SamlStsClient.cs" />
+    <Compile Include="Clients\SosiGwCardClient.cs" />
+    <Compile Include="Model\DgwsHeader.cs" />
+    <Compile Include="EndpointBehaviors\SealSigningEndpointBehavior.cs" />
+    <Compile Include="EndpointBehaviors\MessageEx.cs" />
+    <Compile Include="EndpointBehaviors\SealBehaviorExtentionElement.cs" />
+    <Compile Include="EndpointBehaviors\SealEndpointBehavior.cs" />
+    <Compile Include="EndpointBehaviors\SealMessageInspect.cs" />
+    <Compile Include="EndpointBehaviors\SealSigningBehaviorExtentionElement.cs" />
+    <Compile Include="EndpointBehaviors\SealSigningInspector.cs" />
+    <Compile Include="EndpointBehaviors\SosiGatewayBehaviorExtentionElement.cs" />
+    <Compile Include="EndpointBehaviors\SosiGatewayEndpointBehavior.cs" />
+    <Compile Include="EndpointBehaviors\SosiGatewayMessageInspect.cs" />
+    <Compile Include="MessageHeaders\DgwsMessageHeader.cs" />
+    <Compile Include="MessageHeaders\SealCardMessageHeader.cs" />
+    <Compile Include="Model\Constants\HealthcareSamlAttributes.cs" />
+    <Compile Include="Model\Constants\SamlValues.cs" />
+    <Compile Include="ns.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Saml2AssertionSerializer.cs" />
+    <Compile Include="Model\SealCard.cs" />
+    <Compile Include="SecurityTokens\Saml2SecurityToken2.cs" />
+    <Compile Include="SecurityTokens\Saml2SecurityToken2TokenHandler.cs" />
+    <Compile Include="SecurityTokens\SealSaml2SecurityToken.cs" />
+    <Compile Include="SecurityTokens\SealSaml2SecurityTokenHandler.cs" />
+    <Compile Include="SecurityTokens\SealSecurityTokenHandler.cs" />
+    <Compile Include="SecurityTokens\SosiGWCardSecurityToken.cs" />
+    <Compile Include="SecurityTokens\SosiGWCardTokenHandler.cs" />
+    <Compile Include="SealSignedXml.cs" />
+    <Compile Include="SealUtilities.cs" />
+    <Compile Include="Clients\defaults.cs" />
+    <Compile Include="Model\Constants\SecurityTokenConstants.cs" />
+    <Compile Include="SecurityTokens\SealSecurityToken.cs" />
+    <Compile Include="t.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="klineter.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="changes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DgwsTypes\DgwsTypes.csproj">
+      <Project>{26654dde-5479-4f89-baea-d04bc2c5c312}</Project>
+      <Name>DgwsTypes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
