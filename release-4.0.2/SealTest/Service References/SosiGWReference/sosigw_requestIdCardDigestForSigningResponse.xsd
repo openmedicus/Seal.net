@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://sosi.dk/gw/2007.09.01" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" targetNamespace="http://sosi.dk/gw/2007.09.01" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="ds.xsd" namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <element name="requestIdCardDigestForSigningResponse">
+    <complexType>
+      <sequence>
+        <element ref="ds:DigestValue" />
+        <element name="BrowserUrl" type="anyURI" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

@@ -1,0 +1,9 @@
+﻿Seal.net til .net 4.5
+
+Seal verson 1.0.0.0 (4-4-2013)
+Bugs:
+
+Seal verson 1.0.0.1 (29-4-2013)
+Bugs:NET35 compilerflag sat i projektfilen
+
+SosiGatewayEndpointBehavior added (18/9/2013)
