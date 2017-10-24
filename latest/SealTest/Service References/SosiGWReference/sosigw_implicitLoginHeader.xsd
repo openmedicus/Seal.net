@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:sosigw="http://sosi.dk/gw/2007.09.01" elementFormDefault="qualified" targetNamespace="http://sosi.dk/gw/2007.09.01" xmlns="http://www.w3.org/2001/XMLSchema">
+  <include schemaLocation="sosigw_requestIdCardDigestForSigningResponse.xsd" />
+  <element name="implicitLoginHeader">
+    <complexType>
+      <sequence>
+        <element ref="sosigw:requestIdCardDigestForSigningResponse" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

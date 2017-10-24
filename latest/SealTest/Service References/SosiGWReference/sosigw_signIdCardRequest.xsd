@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:tns="http://sosi.dk/gw/2007.09.01" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" targetNamespace="http://sosi.dk/gw/2007.09.01" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="saml.xsd" namespace="urn:oasis:names:tc:SAML:2.0:assertion" />
+  <import schemaLocation="ds.xsd" namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <element name="signIdCardRequestBody">
+    <complexType>
+      <sequence>
+        <element ref="ds:SignatureValue" />
+        <element ref="ds:KeyInfo" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>
