@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<schema xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:tns="http://sosi.dk/gw/2007.09.01" elementFormDefault="qualified" targetNamespace="http://sosi.dk/gw/2007.09.01" xmlns="http://www.w3.org/2001/XMLSchema">
-  <import schemaLocation="saml.xsd" namespace="urn:oasis:names:tc:SAML:2.0:assertion" />
-  <element name="getValidIdCardRequestBody" type="string" />
-</schema>
