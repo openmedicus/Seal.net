@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://nspop.dk/nts/2013/05" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://web.nts.nsp.nsi.dk/" name="NTS" targetNamespace="http://nspop.dk/nts/2013/05" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://web.nts.nsp.nsi.dk/" location="http://test2.ekstern-test.nspop.dk:8080/nts/service?wsdl=NtsWSProvider.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="NTSSoapBinding" type="ns1:NtsWSProvider">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="invoke">
+      <soap:operation soapAction="http://nspop.dk/nts/2013/05#invoke" style="document" />
+      <wsdl:input name="invoke">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="invokeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NTS">
+    <wsdl:port name="ntsPort" binding="tns:NTSSoapBinding">
+      <soap:address location="http://test2.ekstern-test.nspop.dk:8080/nts/service" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
