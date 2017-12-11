@@ -34,6 +34,11 @@ namespace dk.nsi.seal.Vault
 			CertStore = new X509Store(storeName, storeLocation);
 		}
 
+        public GenericCredentialVault(String storeName)
+        {
+            CertStore = new X509Store(storeName);
+        }
+
         public void AddTrustedCertificate(X509Certificate2 cert)
         {
             CertStore.Open(OpenFlags.ReadWrite);
