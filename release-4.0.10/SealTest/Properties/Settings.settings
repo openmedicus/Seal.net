@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SealTest.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="KeyExchangeSosi2OIOSamlAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://test1.ekstern-test.nspop.dk:8080/sts/services/Sosi2OIOSaml</Value>
+    </Setting>
+    <Setting Name="SecurityTokenService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://test1.ekstern-test.nspop.dk:8080/sts/services/NewSecurityTokenService</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
