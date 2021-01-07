@@ -1,0 +1,104 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{896C32BB-27E9-440C-AEA4-3F38CD54DA8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>dk.nsi.seal</RootNamespace>
+    <AssemblyName>Seal</AssemblyName>
+    <AssemblyVersion>4.0.5</AssemblyVersion>
+    <FileVersion>4.0.5</FileVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Seal.NetStrongName.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'depoy|AnyCPU'">
+    <OutputPath>bin\depoy\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Seal.NetStrongName.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Factories.cd" />
+    <None Include="Federation.cd" />
+    <None Include="klineter.cd" />
+    <None Include="IdCard.cd" />
+    <None Include="SelfSigned.pfx" />
+    <None Include="Vaults.cd" />
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\AssemblyInfo.cs" />
+    <Compile Remove="EndpointBehaviors\SealBehaviorExtentionElement.cs" />
+    <None Include="EndpointBehaviors\SealBehaviorExtentionElement.cs" />
+    <Compile Remove="EndpointBehaviors\SealSigningBehaviorExtentionElement.cs" />
+    <None Include="EndpointBehaviors\SealSigningBehaviorExtentionElement.cs" />
+    <Compile Remove="EndpointBehaviors\SosiGatewayBehaviorExtentionElement.cs" />
+    <None Include="EndpointBehaviors\SosiGatewayBehaviorExtentionElement.cs" />
+    <Compile Remove="Serializers\Saml2ResponseSerializer.cs" />
+    <None Include="Serializers\Saml2ResponseSerializer.cs" />
+    <Compile Remove="SecurityTokens\SealSaml2SecurityTokenHandler.cs" />
+    <None Include="SecurityTokens\SealSaml2SecurityTokenHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="changes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Seal.NetStrongName.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DgwsTypes\DgwsTypes.csproj">
+      <Project>{26654dde-5479-4f89-baea-d04bc2c5c312}</Project>
+      <Name>DgwsTypes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Protocols.WsTrust" Version="6.8.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens.Saml" Version="6.8.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    <PackageReference Include="System.Private.ServiceModel" Version="4.8.0" />
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="5.0.0" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.0" />
+    <PackageReference Include="System.ServiceModel.Federation" Version="4.8.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.8.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.8.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.8.0" />
+  </ItemGroup>
+</Project>
