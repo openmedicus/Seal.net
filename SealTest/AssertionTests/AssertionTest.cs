@@ -199,6 +199,21 @@ namespace SealTest.AssertionTests
             Assert.IsTrue(SealUtilities.CheckAssertionSignature(sec));
         }
 
+        [Test]
+        public void TestAssertionSign_seal()
+        {
+            var factory = CreateSOSIFactory(Global.FocesGyldig);
+            var uid = CreateMocesUserIdCard(factory);
+
+            var ass = uid.GetAssertion<dk.nsi.seal.dgwstypes.Assertion>(null);
+            var signed = SealUtilities.SignAssertion(ass, Global.FocesGyldig);
+            
+            uid.Xassertion = SerializerUtil.Serialize(signed).Root;
+            var signedCard = SealUtilities.SignIn (uid, null, Global.StsUrl);
+            
+            Assert.IsTrue(SealUtilities.CheckAssertionSignature(signed));
+        }
+        
         private static proxy.Security MakeSecurity(proxy.Assertion assertion)
         {
             return new proxy.Security

@@ -1,0 +1,10 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f6dc5384_002Dc466_002D44e6_002Daaff_002D2528d26c42b5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SosiGatewayTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::DCCFFFE0-AAD0-4B87-B62B-3D59B79845B2::net5.0::SealTest.SosiGwTest.SosiGatewayTest&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::DCCFFFE0-AAD0-4B87-B62B-3D59B79845B2::net5.0::SealTest.AssertionTests.AssertionTest.TestAssertionSign&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::DCCFFFE0-AAD0-4B87-B62B-3D59B79845B2::net5.0::SealTest.AssertionTests.AssertionTest.TestSTSogFMKAssertionAsXml_new&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::DCCFFFE0-AAD0-4B87-B62B-3D59B79845B2::net5.0::SealTest.AssertionTests.AssertionTest.TestAssertionSign_new&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::DCCFFFE0-AAD0-4B87-B62B-3D59B79845B2::net5.0::SealTest.AssertionTests.AssertionTest.TestAssertionSign_seal&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -77,7 +77,7 @@ namespace SealTest.Model
 
         public UserIdCard CreateMocesUserIdCard(SOSIFactory factory)
         {
-            return factory.CreateNewUserIdCard("Sygdom.dk", new UserInfo("2408631478", "Amaja", "Christiansen", "jso@trifork.com", "Læge", "5175", "5GXFR"), new CareProvider(SubjectIdentifierType.medcomcvrnumber, "25520041", "TRIFORK SERVICES A/S // CVR:25520041"), AuthenticationLevel.MocesTrustedUser, null, null, Global.MocesCprGyldig, null);
+            return factory.CreateNewUserIdCard("Sygdom.dk", new UserInfo("1802602810", "Amaja", "Christiansen", "jso@trifork.com", "Læge", "7170", "ZXCVB"), new CareProvider(SubjectIdentifierType.medcomcvrnumber, "30808460", "TRIFORK SERVICES A/S // CVR:25520041"), AuthenticationLevel.MocesTrustedUser, null, null, Global.MocesCprGyldig, null);
         }
 
         public UserIdCard CreateUserIdCard(SOSIFactory factory, string userName, string passWord)

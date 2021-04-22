@@ -567,6 +567,12 @@
     <None Include="Saml2IssuerTokenResolver.cs" />
     <Compile Remove="FMKService\FMKService.cs" />
     <None Include="FMKService\FMKService.cs" />
+    <None Update="Resources\MOCES_cpr_gyldig_2022.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\FOCES_gyldig_2022.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
